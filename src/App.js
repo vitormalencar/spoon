@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import useReactRouter from "use-react-router";
+
+import Card from "./components/Card";
+import { RecipeList } from "./pages/RecipesList";
+import "./App.css";
+
+function Recipe() {
+  const { location } = useReactRouter();
+  const { state } = location;
+  return <Card {...state} />;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/recipe">
+          <Recipe />
+        </Route>
+        <Route path="/">
+          <RecipeList />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
