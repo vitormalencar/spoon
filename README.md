@@ -4,9 +4,8 @@ Marley
 </h1>
 <h1 align="center">
 <a href="https://circleci.com/gh/vitormalencar/marleyspoon/">
-  <img src="https://circleci.com/gh/vitormalencar/marleyspoon/tree/master.svg?style=svg" alt="circleCi">
+  <img src="https://circleci.com/gh/vitormalencar/marleyspoon.svg?style=svg" alt='circleCI'/>
 </a>
-
 <a href="https://github.com/prettier/prettier">
   <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" alt="code style: prettier" />
 </a>
