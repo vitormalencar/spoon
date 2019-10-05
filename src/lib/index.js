@@ -8,6 +8,12 @@ export const mapChefs = (chef: Chef): string =>
 export const mapTags = (tags: Tag): Array<string> =>
   tags !== undefined ? tags.map(({ fields: { name } }) => name) : [];
 
+export const mapTitle = (title: string, pattern: string): string =>
+  title.substring(0, title.indexOf(pattern));
+
+export const mapSubtitle = (title: string, pattern: string): string =>
+  title.substring(title.indexOf(pattern));
+
 export const mapRecipe = ({
   sys: { id },
   fields: {
@@ -23,7 +29,8 @@ export const mapRecipe = ({
   }
 }: Recipe) => ({
   id,
-  title,
+  title: mapTitle(title, "with"),
+  subtitle: mapSubtitle(title, "with"),
   description,
   url,
   chef: mapChefs(chef),
