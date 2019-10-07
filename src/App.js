@@ -1,19 +1,19 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import useReactRouter from "use-react-router";
 
-import Card from "./components/Card";
+import Recipe from "./pages/RecipeDetail";
 import { RecipeList } from "./pages/RecipesList";
-import "./App.css";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { Header, Logo, Narrow } from "./styles/HeaderStyle";
 
-function Recipe() {
-  const { location } = useReactRouter();
-  const { state } = location;
-  return <Card {...state} />;
-}
-
-function App() {
-  return (
+const App = () => (
+  <React.Fragment>
+    <GlobalStyle />
+    <Header>
+      <Narrow>
+        <Logo />
+      </Narrow>
+    </Header>
     <Router>
       <Switch>
         <Route path="/recipe">
@@ -24,7 +24,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
-}
+  </React.Fragment>
+);
 
 export default App;
