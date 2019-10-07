@@ -1,6 +1,8 @@
 // @flow
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { Recipe } from "../hooks/useRecipes/types";
+
 import {
   Card,
   CardImage,
@@ -30,7 +32,7 @@ export default (item: Recipe) => {
         </CardLabels>
         <CardDescription>
           <CardDescriptionTitle>What's cooking</CardDescriptionTitle>
-          {description}
+          <ReactMarkdown source={description} />
         </CardDescription>
         <CardAuthor>
           <CardAvatar src={AVATAR_URL} />
