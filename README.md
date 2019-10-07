@@ -18,6 +18,11 @@ hooks are just awesome, this new api is about to makes your component code way m
 
 Styled Components help keep the concerns of styling and element architecture separated and make components more readable. Furthermore, when you have components that rely on JavaScript for their style, Styled Components gives control of those states back to CSS instead of using a multitude of conditional class names.
 
+### Flow
+
+Flow is a static type checker for javascript.
+it helps you refactor safely, so you can focus on the changes you want to make, and stop worrying about what you might break.
+
 ## Stack
 
 - React
@@ -25,6 +30,7 @@ Styled Components help keep the concerns of styling and element architecture sep
 - Prettier
 - Enzyme
 - Styled-componnets
+- Flow JS
 
 ## Development
 
