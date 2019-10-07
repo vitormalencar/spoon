@@ -14,14 +14,14 @@ export const Header = styled.div`
 `;
 
 export const Narrow = styled.div`
-  width: calc(80px * 12 + 10px * (12));
   margin: 0 auto;
   height: 56px;
-  padding: 5px;
+  padding: 3px;
 `;
 
 export const Logo = styled.div`
-  margin: 0;
+  margin: 0 auto;
+  display: block;
   padding: 0 16px;
   width: 98px;
   height: 44px;

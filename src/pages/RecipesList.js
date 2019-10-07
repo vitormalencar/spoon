@@ -18,8 +18,8 @@ export function RecipeList() {
       ) : (
         <CardListContainer>
           <CardList>
-            {recipes.map(item => (
-              <CardItem>
+            {recipes.map((item, index) => (
+              <CardItem key={index}>
                 <Card {...item} />
               </CardItem>
             ))}
