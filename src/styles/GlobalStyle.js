@@ -15,6 +15,7 @@ body {
   font-weight: 400;
   letter-spacing: 0;
   padding: 1rem;
+  margin-top:56px;
   text-rendering: optimizeLegibility;
 }
 a {
