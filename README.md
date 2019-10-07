@@ -15,9 +15,9 @@ Marley
 
 - React
 - Redux
-- Redux-actions
 - Reselect
 - Prettier
+- Redux-actions
 - Styled-componnets
 
 ## Development
