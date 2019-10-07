@@ -1,27 +1,30 @@
+// @flow
 import React from "react";
 
 import Card from "../components/Card";
-import HeaderTitle from "../components/HeaderTitle";
+import { Title } from "../styles/TitleStyles";
 import { useRecipes } from "../hooks/useRecipes";
+import BouncingLoader from "../components/BouncingLoader";
+import { CardList, CardItem, CardListContainer } from "../styles/CardStyles";
 
 export function RecipeList() {
   const [{ recipes, isLoading, isError }] = useRecipes();
   return (
     <div>
       {isError && <div>Something went wrong ...</div>}
-      <HeaderTitle title={"Our weekly menu"} />
+      <Title>Our weekly menu</Title>
       {isLoading ? (
-        <div>Loading ...</div>
+        <BouncingLoader />
       ) : (
-        <div className="cards-wrapper">
-          <ul className="cards">
+        <CardListContainer>
+          <CardList>
             {recipes.map(item => (
-              <li className="cards__item">
+              <CardItem>
                 <Card {...item} />
-              </li>
+              </CardItem>
             ))}
-          </ul>
-        </div>
+          </CardList>
+        </CardListContainer>
       )}
     </div>
   );
