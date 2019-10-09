@@ -26,10 +26,6 @@
     "flow": "flow"
   },
   "jest": {
-    "collectCoverage": true,
-    "coverageReporters": [
-      "lcov"
-    ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/index.js",
       "<rootDir>/src/serviceWorker.js"
