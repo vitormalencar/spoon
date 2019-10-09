@@ -3,6 +3,8 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![CircleCI](https://circleci.com/gh/vitormalencar/marleyspoon.svg?style=svg)](https://circleci.com/gh/vitormalencar/marleyspoon)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/c458950fb7d58b60b179/test_coverage)](https://codeclimate.com/github/vitormalencar/spoon/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c458950fb7d58b60b179/maintainability)](https://codeclimate.com/github/vitormalencar/spoon/maintainability)
 
 ## Motivation
 
