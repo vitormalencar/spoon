@@ -25,6 +25,11 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
 
       - run: yarn install
 
@@ -37,4 +42,9 @@ jobs:
       - run: yarn flow
 
       # run tests!
-      - run: yarn test
+      - run:
+          name: Run Test and Coverage
+          command: |
+            ./cc-test-reporter before-build
+            yarn test -- --coverage
+            ./cc-test-reporter after-build --exit-code $?
