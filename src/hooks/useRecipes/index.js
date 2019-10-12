@@ -3,12 +3,16 @@ import { useEffect, useReducer } from "react";
 import { FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE } from "./constants";
 import { INITIAL_STATE, dataFetchReducer } from "./reducer";
 import { fetchtRecipes } from "../../api";
+import Recipe from "../useRecipes/types";
 
 export const initFetch = () => ({ type: FETCH_INIT });
 export const fetchFailure = () => ({ type: FETCH_FAILURE });
-export const fetchSuccess = payload => ({ type: FETCH_SUCCESS, payload });
+export const fetchSuccess = (payload: Array<Recipe>) => ({
+  type: FETCH_SUCCESS,
+  payload
+});
 
-export const useRecipeEffect = dispatch => {
+export const useRecipeEffect = (dispatch: any) => {
   useEffect(() => {
     const fetchRecipes = async () => {
       dispatch(initFetch());
