@@ -4,30 +4,28 @@ import { FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE } from "./constants";
 import { INITIAL_STATE, dataFetchReducer } from "./reducer";
 import { fetchtRecipes } from "../../api";
 
-export const useRecipes = () => {
-  const [state, dispatch] = useReducer(dataFetchReducer, INITIAL_STATE);
+export const initFetch = () => ({ type: FETCH_INIT });
+export const fetchFailure = () => ({ type: FETCH_FAILURE });
+export const fetchSuccess = payload => ({ type: FETCH_SUCCESS, payload });
 
+export const useRecipeEffect = dispatch => {
   useEffect(() => {
-    let didCancel = false;
     const fetchRecipes = async () => {
-      dispatch({ type: FETCH_INIT });
+      dispatch(initFetch());
       try {
         const result = await fetchtRecipes();
-        if (!didCancel) {
-          dispatch({ type: FETCH_SUCCESS, payload: result });
-        }
+        dispatch(fetchSuccess(result));
       } catch (error) {
-        if (!didCancel) {
-          dispatch({ type: FETCH_FAILURE });
-        }
+        dispatch(fetchFailure());
       }
     };
 
     fetchRecipes();
-    return () => {
-      didCancel = true;
-    };
-  }, []);
+  }, [dispatch]);
+};
 
+export const useRecipes = () => {
+  const [state, dispatch] = useReducer(dataFetchReducer, INITIAL_STATE);
+  useRecipeEffect(dispatch);
   return [state];
 };

@@ -1,8 +1,15 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import { useRecipes } from "./index";
+import {
+  useRecipes,
+  useRecipeEffect,
+  fetchSuccess,
+  initFetch,
+  fetchFailure
+} from "./index";
 import { dataFetchReducer, INITIAL_STATE } from "./reducer";
 import { FETCH_INIT, FETCH_SUCCESS, FETCH_FAILURE } from "./constants";
 import { mappedRecipe } from "../../mocks/recipe";
+import * as API from "../../api";
 
 describe("Recipe hook", () => {
   it("should return the correct initial State", () => {
@@ -12,6 +19,30 @@ describe("Recipe hook", () => {
       isError: false,
       recipes: []
     });
+  });
+
+  it("should call dispatch with Success when the promise resolves", async () => {
+    const mockPromise = jest.spyOn(API, "fetchtRecipes").mockResolvedValue([]);
+    const mockDispatch = jest.fn();
+    const response = renderHook(() => useRecipeEffect(mockDispatch));
+
+    await mockPromise();
+
+    expect(mockDispatch).toHaveBeenNthCalledWith(1, initFetch());
+    expect(mockDispatch).toHaveBeenNthCalledWith(2, fetchSuccess([]));
+  });
+
+  it("should call dispatch with Error when the promise rejects", async () => {
+    const mockPromise = jest
+      .spyOn(API, "fetchtRecipes")
+      .mockRejectedValueOnce();
+
+    const mockDispatch = jest.fn();
+    const response = renderHook(() => useRecipeEffect(mockDispatch));
+
+    await mockPromise().catch();
+    expect(mockDispatch).toHaveBeenNthCalledWith(1, initFetch());
+    expect(mockDispatch).toHaveBeenNthCalledWith(2, fetchFailure());
   });
 });
 
