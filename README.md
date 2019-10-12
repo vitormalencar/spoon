@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c458950fb7d58b60b179/maintainability)](https://codeclimate.com/github/vitormalencar/spoon/maintainability)
 [![Known Vulnerabilities](https://snyk.io/test/github/vitormalencar/spoon/badge.svg)](https://snyk.io/test/github/vitormalencar/spoon)
 [![dependencies Status](https://david-dm.org/vitormalencar/spoon/status.svg)](https://david-dm.org/vitormalencar/spoon)
-[![devDependencies Status](https://david-dm.org/vitormalencar/spoon/dev-status.svg)](https://david-dm.org/vitormalencar/spoon?type=dev)
+[![devDependencies Status](https://david-dm.org/vitormalencar/spoon/dev-status.svg)](https://david-dm.org/vitormalencar/spoon?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/vitormalencar/spoon.svg)](https://greenkeeper.io/)
 
 ## Motivation
 
