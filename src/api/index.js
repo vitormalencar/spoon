@@ -11,4 +11,7 @@ const recipeEntrie = {
 };
 
 export const fetchtRecipes = () =>
-  client.getEntries(recipeEntrie).then(({ items }) => items.map(mapRecipe));
+  client
+    .getEntries(recipeEntrie)
+    .then(({ items }) => items.map(mapRecipe))
+    .catch(err => console.log(err));
