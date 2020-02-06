@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "contentful": "^7.10.0",
-    "flow-bin": "^0.115.0",
+    "flow-bin": "^0.118.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-markdown": "^4.2.2",
